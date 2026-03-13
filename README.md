@@ -1,6 +1,6 @@
 # 🇹🇭 Thai ID Card Reader Service
 
-บริการอ่านข้อมูลจากบัตรประชาชนไทย (Smart Card) ผ่านทาง API บนเครื่องท้องถิ่น
+โปรแกรมอ่านข้อมูลจากบัตรประชาชน (Smart Card) ผ่านทาง API บนเครื่อง Local
 
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-6DB33F?style=flat-square&logo=spring-boot)
@@ -26,7 +26,7 @@
 
 ## ✨ คุณสมบัติ
 
-- 📖 **อ่านข้อมูลบัตรประชาชนไทย** - ดึงข้อมูลชื่อ, นามสกุล, เลขบัตร, วันเกิด, ที่อยู่
+- 📖 **อ่านข้อมูลบัตรประชาชน** - ดึงข้อมูลชื่อ, นามสกุล, เลขบัตร, วันเกิด, ที่อยู่
 - 🚀 **API บน Localhost** - เรียกใช้ผ่าน HTTP GET ได้ทันที
 - 🎯 **System Tray Icon** - ควบคุมบริการจาก system tray (Start/Stop/Restart)
 - 🔄 **Auto Hardware Recovery** - กู้คืนการเชื่อมต่อหลังจากถอด/เสียบ card reader
@@ -76,7 +76,7 @@
 
 ### ฮาร์ดแวร์ที่รองรับ
 - Smart Card Reader ที่รองรับมาตรฐาน PC/SC
-- บัตรประชาชนไทย (Smart Card)
+- บัตรประชาชน (Smart Card)
 
 ---
 
@@ -285,33 +285,6 @@ MIT License - ดูรายละเอียดในไฟล์ [LICENSE](L
 
 ---
 
-## 🤝 Contributing
-
-ยินดีรับ Contribution จากทุกคน!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📞 Contact
-
-- **Project Link:** [https://github.com/your-repo/thai-smartcardreader](https://github.com/your-repo/thai-smartcardreader)
-- **Issues:** [GitHub Issues](https://github.com/your-repo/thai-smartcardreader/issues)
-
----
-
-## 🙏 Acknowledgments
-
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [JNA](https://github.com/java-native-access/jna)
-- [FlatLaf](https://www.formdev.com/flatlaf/)
-- [Launch4j](http://launch4j.sourceforge.net/)
-
----
 
 <div align="center">
 
