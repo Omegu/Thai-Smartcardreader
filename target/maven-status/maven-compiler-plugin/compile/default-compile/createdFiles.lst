@@ -5,6 +5,7 @@ com\idbridge\config\CorsConfig.class
 com\idbridge\model\PersonalData.class
 com\idbridge\ui\LogWindow.class
 com\idbridge\ui\TrayManagement.class
+com\idbridge\service\SmartCardReader$WinSCardLib.class
 com\idbridge\ThaiIdBridgeApplication.class
 com\idbridge\util\ThaiIdApdu.class
 com\idbridge\service\CardService.class
