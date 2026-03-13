@@ -1,0 +1,71 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "🚀 Build Application",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["-DskipTests", "clean", "package"],
+            "group": "build",
+            "problemMatcher": ["$msCompile"],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "📦 Create GitHub Release",
+            "type": "shell",
+            "command": "${workspaceFolder}/create-release.bat",
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "⬆️ Push to GitHub (First Time)",
+            "type": "shell",
+            "command": "${workspaceFolder}/push-to-github.bat",
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "▶️ Run Application",
+            "type": "shell",
+            "command": "java",
+            "args": [
+                "--add-opens",
+                "java.smartcardio/sun.security.smartcardio=ALL-UNNAMED",
+                "-jar",
+                "target/thai-id-bridge-1.0.0.jar"
+            ],
+            "group": "test",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        },
+        {
+            "label": "🧹 Clean",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["clean"],
+            "group": "build",
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            }
+        }
+    ]
+}
