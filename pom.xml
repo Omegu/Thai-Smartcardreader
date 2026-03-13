@@ -17,6 +17,8 @@
 
     <properties>
         <java.version>17</java.version>
+        <launch4j.version>2.5.1</launch4j.version>
+        <project.basedir>${project.baseUri}</project.basedir>
     </properties>
 
     <dependencies>
@@ -81,6 +83,56 @@
                         --add-opens java.smartcardio/sun.security.smartcardio=ALL-UNNAMED
                     </jvmArguments>
                 </configuration>
+            </plugin>
+            <!-- Launch4j: สร้างไฟล์ .exe -->
+            <plugin>
+                <groupId>com.akathist.maven.plugins.launch4j</groupId>
+                <artifactId>launch4j-maven-plugin</artifactId>
+                <version>${launch4j.version}</version>
+                <executions>
+                    <execution>
+                        <id>launch4j-exe</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>launch4j</goal>
+                        </goals>
+                        <configuration>
+                            <headerType>gui</headerType>
+                            <outfile>target/ThaiIDBridge.exe</outfile>
+                            <jar>target/thai-id-bridge-1.0.0.jar</jar>
+                            <errTitle>Thai ID Bridge</errTitle>
+                            <cmdLine>--add-opens java.smartcardio/sun.security.smartcardio=ALL-UNNAMED</cmdLine>
+                            <chdir>.</chdir>
+                            <priority>normal</priority>
+                            <downloadUrl>https://adoptium.net/</downloadUrl>
+                            <supportUrl>https://github.com/your-repo/thai-smartcardreader</supportUrl>
+                            <stayAlive>false</stayAlive>
+                            <restartOnCrash>false</restartOnCrash>
+                            <icon>smart.ico</icon>
+                            <jre>
+                                <path>%JAVA_HOME%</path>
+                                <minVersion>17</minVersion>
+                                <jdkPreference>preferJre</jdkPreference>
+                                <requires64Bit>true</requires64Bit>
+                                <opts>
+                                    <opt>--add-opens java.smartcardio/sun.security.smartcardio=ALL-UNNAMED</opt>
+                                </opts>
+                            </jre>
+                            <versionInfo>
+                                <fileVersion>1.0.0.0</fileVersion>
+                                <txtFileVersion>1.0.0</txtFileVersion>
+                                <fileDescription>Thai ID Card Reader Service</fileDescription>
+                                <copyright>2024</copyright>
+                                <productVersion>1.0.0.0</productVersion>
+                                <txtProductVersion>1.0.0</txtProductVersion>
+                                <productName>Thai ID Bridge</productName>
+                                <companyName>ID Bridge</companyName>
+                                <internalName>ThaiIDBridge</internalName>
+                                <originalFilename>ThaiIDBridge.exe</originalFilename>
+                            </versionInfo>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
