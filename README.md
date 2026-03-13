@@ -6,7 +6,7 @@
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-6DB33F?style=flat-square&logo=spring-boot)
 ![Platform](https://img.shields.io/badge/Platform-Windows%20x64-0078D4?style=flat-square&logo=windows)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
-ซอฟต์แวร์นี้เป็นเพียงเครื่องมือสำหรับอ่านข้อมูล ผู้ที่นำไปใช้งานต้องรับผิดชอบในการปฏิบัติตามกฎหมาย PDPA ด้วยตนเอง ผู้พัฒนาไม่รับผิดชอบต่อการนำข้อมูลไปใช้อย่างผิดกฎหมาย
+
 ---
 
 ## 📋 สารบัญ
@@ -33,6 +33,8 @@
 - 🛡️ **ปลอดภัย** - รันบนเครื่องท้องถิ่น ไม่ส่งข้อมูลออกภายนอก
 - 🎨 **UI ทันสมัย** - ใช้ FlatLaf Look and Feel
 
+
+ซอฟต์แวร์นี้เป็นเพียงเครื่องมือสำหรับอ่านข้อมูล ผู้ที่นำไปใช้งานต้องรับผิดชอบในการปฏิบัติตามกฎหมาย PDPA ด้วยตนเอง ผู้พัฒนาไม่รับผิดชอบต่อการนำข้อมูลไปใช้อย่างผิดกฎหมาย
 ---
 
 ## 🛠️ Tech Stack
