@@ -1,6 +1,6 @@
 # 🇹🇭 Thai ID Card Reader Service
 
-บริการอ่านข้อมูลจากบัตรประชาชนไทย (Smart Card) ผ่านทาง API บนเครื่องท้องถิ่น
+โปรแกรมอ่านข้อมูลจากบัตรประชาชน (Smart Card) ผ่านทาง API บนเครื่อง Local
 
 ![Java](https://img.shields.io/badge/Java-17+-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.0-6DB33F?style=flat-square&logo=spring-boot)
@@ -26,12 +26,24 @@
 
 ## ✨ คุณสมบัติ
 
-- 📖 **อ่านข้อมูลบัตรประชาชนไทย** - ดึงข้อมูลชื่อ, นามสกุล, เลขบัตร, วันเกิด, ที่อยู่
+- 📖 **อ่านข้อมูลบัตรประชาชน** - ดึงข้อมูลชื่อ, นามสกุล, เลขบัตร, วันเกิด, ที่อยู่
 - 🚀 **API บน Localhost** - เรียกใช้ผ่าน HTTP GET ได้ทันที
 - 🎯 **System Tray Icon** - ควบคุมบริการจาก system tray (Start/Stop/Restart)
 - 🔄 **Auto Hardware Recovery** - กู้คืนการเชื่อมต่อหลังจากถอด/เสียบ card reader
 - 🛡️ **ปลอดภัย** - รันบนเครื่องท้องถิ่น ไม่ส่งข้อมูลออกภายนอก
 - 🎨 **UI ทันสมัย** - ใช้ FlatLaf Look and Feel
+
+
+⚖️ Disclaimer (ข้อสงวนสิทธิ์และคำชี้แจง)
+ซอฟต์แวร์นี้ถูกสร้างขึ้นเพื่อวัตถุประสงค์ในการเป็นเครื่องมือช่วยอำนวยความสะดวกแก่นักพัฒนาในการเชื่อมต่อกับเครื่องอ่านบัตรประชาชนเท่านั้น ผู้พัฒนาโปรแกรมขอชี้แจงเงื่อนไขการใช้งานดังนี้:
+
+ความรับผิดชอบด้านข้อมูลส่วนบุคคล (PDPA): ข้อมูลที่อ่านจากบัตรประชาชนเป็นข้อมูลส่วนบุคคลที่มีความอ่อนไหว ผู้ที่นำซอฟต์แวร์นี้ไปใช้หรือติดตั้งในระบบงานของตน มีหน้าที่และความรับผิดชอบโดยตรง ในการปฏิบัติตาม พ.ร.บ. คุ้มครองข้อมูลส่วนบุคคล (PDPA) รวมถึงการขอความยินยอมจากเจ้าของบัตร และการรักษาความปลอดภัยของข้อมูล
+
+ไม่มีการเก็บข้อมูลภายนอก: ผู้พัฒนาขอรับรองว่าซอฟต์แวร์เวอร์ชันต้นฉบับ (Original Source Code) ทำงานเฉพาะบนเครื่องท้องถิ่น (Localhost) เท่านั้น ไม่มีการแอบแฝงส่งข้อมูลออกไปยังเซิร์ฟเวอร์ภายนอกหรือบุคคลที่สาม
+
+การนำไปใช้งาน: ผู้พัฒนาไม่ขอรับผิดชอบต่อความเสียหาย บกพร่อง หรือการละเมิดกฎหมายใดๆ ที่เกิดจากการนำซอฟต์แวร์นี้ไปดัดแปลง หรือนำไปใช้อย่างผิดวัตถุประสงค์โดยผู้ใช้งาน
+
+As-Is Basis: ซอฟต์แวร์นี้ให้บริการ "ตามสภาพ" (As-Is) โดยไม่มีการรับประกันความเสียหายจากการใช้งานในทุกกรณี
 
 ---
 
@@ -76,7 +88,7 @@
 
 ### ฮาร์ดแวร์ที่รองรับ
 - Smart Card Reader ที่รองรับมาตรฐาน PC/SC
-- บัตรประชาชนไทย (Smart Card)
+- บัตรประชาชน (Smart Card)
 
 ---
 
@@ -285,33 +297,6 @@ MIT License - ดูรายละเอียดในไฟล์ [LICENSE](L
 
 ---
 
-## 🤝 Contributing
-
-ยินดีรับ Contribution จากทุกคน!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
----
-
-## 📞 Contact
-
-- **Project Link:** [https://github.com/your-repo/thai-smartcardreader](https://github.com/your-repo/thai-smartcardreader)
-- **Issues:** [GitHub Issues](https://github.com/your-repo/thai-smartcardreader/issues)
-
----
-
-## 🙏 Acknowledgments
-
-- [Spring Boot](https://spring.io/projects/spring-boot)
-- [JNA](https://github.com/java-native-access/jna)
-- [FlatLaf](https://www.formdev.com/flatlaf/)
-- [Launch4j](http://launch4j.sourceforge.net/)
-
----
 
 <div align="center">
 
