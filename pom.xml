@@ -11,7 +11,7 @@
     
     <groupId>com.idbridge</groupId>
     <artifactId>thai-id-bridge</artifactId>
-    <version>1.0.0</version>
+    <version>1.5.0</version>
     <name>Thai ID Bridge Service</name>
     <description>Local Bridge Service for Thai ID Card</description>
 
