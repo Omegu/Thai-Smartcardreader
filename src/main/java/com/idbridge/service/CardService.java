@@ -12,14 +12,32 @@ public class CardService {
 
     private final SmartCardReader smartCardReader;
     private final TrayManagement trayManagement;
+    private final StatsService statsService;
+    private final WebhookService webhookService;
 
-    public CardService(SmartCardReader smartCardReader, TrayManagement trayManagement) {
+    // Cache for 3 seconds to avoid repeated reads of the same card
+    private volatile PersonalData cachedData = null;
+    private volatile long cacheTimestamp = 0;
+    private static final long CACHE_TTL_MS = 3000L;
+
+    public CardService(SmartCardReader smartCardReader, TrayManagement trayManagement,
+                       StatsService statsService, WebhookService webhookService) {
         this.smartCardReader = smartCardReader;
         this.trayManagement = trayManagement;
+        this.statsService = statsService;
+        this.webhookService = webhookService;
     }
 
     public PersonalData readThaiId() throws Exception {
+        // Check cache first (valid for 3 seconds)
+        long now = System.currentTimeMillis();
+        if (cachedData != null && (now - cacheTimestamp) < CACHE_TTL_MS) {
+            trayManagement.log("Returning cached data (age: " + (now - cacheTimestamp) + "ms)");
+            return cachedData;
+        }
+
         Card card = null;
+        statsService.incrementTotal();
         try {
             trayManagement.log("Connecting to card reader...");
             card = smartCardReader.connect();
@@ -65,12 +83,21 @@ public class CardService {
             data.setExpireDate(expireDate);
             data.setPhotoBase64(""); // ชั่วคราว ปล่อยว่าง
 
+            statsService.incrementSuccess();
+            // Update cache
+            cachedData = data;
+            cacheTimestamp = System.currentTimeMillis();
+
+            // Send webhook asynchronously (don't wait for it)
+            webhookService.sendCardReadEvent(data);
+
             return data;
 
         } catch (Exception e) {
             String error = "Card read failed: " + e.getMessage();
             trayManagement.log(error);
-            throw new Exception(error);
+            statsService.incrementFailure(e.getClass().getSimpleName());
+            throw e;
         } finally {
             if (card != null) {
                 try {
