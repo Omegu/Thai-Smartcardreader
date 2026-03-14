@@ -115,7 +115,7 @@
                         <configuration>
                             <headerType>gui</headerType>
                             <outfile>target/ThaiIDBridge.exe</outfile>
-                            <jar>target/thai-id-bridge-1.0.0.jar</jar>
+                            <jar>target/thai-id-bridge-${project.version}.jar</jar>
                             <errTitle>Thai ID Bridge</errTitle>
                             <cmdLine>--add-opens java.smartcardio/sun.security.smartcardio=ALL-UNNAMED</cmdLine>
                             <chdir>.</chdir>
@@ -135,8 +135,8 @@
                                 </opts>
                             </jre>
                             <versionInfo>
-                                <fileVersion>1.0.0.0</fileVersion>
-                                <txtFileVersion>1.0.0</txtFileVersion>
+                                <fileVersion>${project.version}.0</fileVersion>
+                                <txtFileVersion>${project.version}</txtFileVersion>
                                 <fileDescription>Thai ID Card Reader Service</fileDescription>
                                 <copyright>2024</copyright>
                                 <productVersion>1.0.0.0</productVersion>
