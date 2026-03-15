@@ -47,11 +47,14 @@ public class CardService {
             byte[] cidBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_CID);
             String cid = parseString(cidBytes);
 
-            byte[] nameBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_NAME);
-            String nameRaw = parseString(nameBytes);
-            // โครงสร้างชื่อ: คำนำหน้าไทย#ชื่อไทย#นามสกุลไทย##คำนำหน้าอังกฤษ#ชื่ออังกฤษ#นามสกุลอังกฤษ
-            String[] names = nameRaw.split("#");
+            // อ่านชื่อไทยเต็มรูปแบบ (ไม่แยกชื่อ-นามสกุล)
+            byte[] thaiNameBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_NAME);
+            String thaiFullName = parseString(thaiNameBytes).replace("#", " ").trim();
             
+            // อ่านชื่ออังกฤษเต็มรูปแบบ (ไม่แยกชื่อ-นามสกุล)
+            byte[] enNameBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_NAME_EN);
+            String enFullName = parseString(enNameBytes).replace("#", " ").trim();
+
             byte[] dobBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_DOB);
             String dob = parseString(dobBytes);
 
@@ -61,21 +64,24 @@ public class CardService {
             byte[] addressBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_ADDRESS);
             String address = parseString(addressBytes).replace("#", " ").trim();
 
-            byte[] issueExpireBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_ISSUE_EXPIRE);
-            String issueExpireRaw = parseString(issueExpireBytes);
-            String issueDate = issueExpireRaw.substring(0, 8);
-            String expireDate = issueExpireRaw.substring(8, 16);
+            // อ่านวันออกบัตรและวันหมดอายุแยกกัน
+            byte[] issueDateBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_ISSUE_DATE);
+            String issueDate = parseString(issueDateBytes);
+            
+            byte[] expireDateBytes = smartCardReader.sendCommand(card, ThaiIdApdu.GET_EXPIRE_DATE);
+            String expireDate = parseString(expireDateBytes);
 
             // TODO: หากต้องการอ่านรูปภาพ ต้องใช้ลูปทะยอยดึงทีละ 254 byte แล้วรวมร่างแปลง base64 
 
             PersonalData data = new PersonalData();
             data.setCid(cid);
-            data.setTitleTH(names.length > 0 ? names[0] : "");
-            data.setFirstNameTH(names.length > 1 ? names[1] : "");
-            data.setLastNameTH(names.length > 3 ? names[3] : "");
-            data.setTitleEN(names.length > 5 ? names[5] : "");
-            data.setFirstNameEN(names.length > 6 ? names[6] : "");
-            data.setLastNameEN(names.length > 8 ? names[8] : "");
+            
+            // สำหรับชื่อไทย: เก็บชื่อเต็ม (ไม่แยกคำนำหน้า-นามสกุลเพราะไม่ได้ใช้แล้ว)
+            data.setFirstNameTH(thaiFullName);
+            
+            // สำหรับชื่ออังกฤษ: เก็บชื่อเต็ม (ไม่แยกคำนำหน้า-นามสกุลเพราะไม่ได้ใช้แล้ว)
+            data.setFirstNameEN(enFullName);
+            
             data.setBirthDate(dob);
             data.setGender(gender);
             data.setAddress(address);

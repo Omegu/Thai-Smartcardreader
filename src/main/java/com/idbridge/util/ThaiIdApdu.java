@@ -29,6 +29,18 @@ public class ThaiIdApdu {
     // คำสั่งวันออกบัตร/วันหมดอายุ
     public static final byte[] GET_ISSUE_EXPIRE = { (byte) 0x80, (byte) 0xB0, (byte) 0x01, (byte) 0x67, (byte) 0x02, (byte) 0x00, (byte) 0x12 };
 
+    // คำสั่งอ่านชื่อ-สุกล อังกฤษ
+    public static final byte[] GET_NAME_EN = { (byte) 0x80, (byte) 0xB0, (byte) 0x00, (byte) 0x75, (byte) 0x02, (byte) 0x00, (byte) 0x64 };
+
+    // คำสั่งอ่านผู้ออกบัตร
+    public static final byte[] GET_ISSUER = { (byte) 0x80, (byte) 0xB0, (byte) 0x00, (byte) 0xF6, (byte) 0x02, (byte) 0x00, (byte) 0x64 };
+
+    // คำสั่งอ่านวันออกบัตร (แยกจากวันหมดอายุ)
+    public static final byte[] GET_ISSUE_DATE = { (byte) 0x80, (byte) 0xB0, (byte) 0x01, (byte) 0x67, (byte) 0x02, (byte) 0x00, (byte) 0x08 };
+
+    // คำสั่งอ่านวันหมดอายุบัตร (แยกจากวันออกบัตร)
+    public static final byte[] GET_EXPIRE_DATE = { (byte) 0x80, (byte) 0xB0, (byte) 0x01, (byte) 0x6F, (byte) 0x02, (byte) 0x00, (byte) 0x08 };
+
     /**
      * สำหรับการอ่านรูปภาพ (Photo) จะต้องส่งเป็น Loop Command
      * เพื่อดึงข้อมูลทีละส่วน เนื่องจากข้อจำกัดของบัตรสมาร์ทการ์ด

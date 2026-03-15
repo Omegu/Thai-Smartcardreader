@@ -67,7 +67,7 @@ public class TrayManagement {
                 log("Manual test triggered from system tray...");
                 CardService cardService = applicationContext.getBean(CardService.class);
                 com.idbridge.model.PersonalData data = cardService.readThaiId();
-                log("Read Success: " + data.getFirstNameTH() + " " + data.getLastNameTH() + " (" + data.getCid() + ")");
+                log("Read Success: " + data.getFirstNameTH() + " (" + data.getCid() + ")");
             } catch (Exception ex) {
                 log("Test failed: " + ex.getMessage());
             }

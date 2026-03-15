@@ -42,9 +42,8 @@ public class WebhookService {
                 "timestamp", System.currentTimeMillis(),
                 "data", Map.of(
                     "cid", data.getCid(),
-                    "titleTH", data.getTitleTH(),
                     "firstNameTH", data.getFirstNameTH(),
-                    "lastNameTH", data.getLastNameTH(),
+                    "firstNameEN", data.getFirstNameEN(),
                     "birthDate", data.getBirthDate()
                 )
             );

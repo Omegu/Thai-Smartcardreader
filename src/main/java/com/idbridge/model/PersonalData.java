@@ -1,13 +1,10 @@
+
 package com.idbridge.model;
 
 public class PersonalData {
     private String cid;         // หมายเลขบัตรประชาชน
-    private String titleTH;     // คำนำหน้าไทย
     private String firstNameTH; // ชื่อไทย
-    private String lastNameTH;  // นามสกุลไทย
-    private String titleEN;     // คำนำหน้าอังกฤษ
     private String firstNameEN; // ชื่ออังกฤษ
-    private String lastNameEN;  // นามสกุลอังกฤษ
     private String gender;      // เพศ
     private String birthDate;   // วันเกิด (YYYYMMDD)
     private String address;     // ที่อยู่
@@ -23,14 +20,6 @@ public class PersonalData {
         this.cid = cid;
     }
 
-    public String getTitleTH() {
-        return titleTH;
-    }
-
-    public void setTitleTH(String titleTH) {
-        this.titleTH = titleTH;
-    }
-
     public String getFirstNameTH() {
         return firstNameTH;
     }
@@ -39,36 +28,12 @@ public class PersonalData {
         this.firstNameTH = firstNameTH;
     }
 
-    public String getLastNameTH() {
-        return lastNameTH;
-    }
-
-    public void setLastNameTH(String lastNameTH) {
-        this.lastNameTH = lastNameTH;
-    }
-
-    public String getTitleEN() {
-        return titleEN;
-    }
-
-    public void setTitleEN(String titleEN) {
-        this.titleEN = titleEN;
-    }
-
     public String getFirstNameEN() {
         return firstNameEN;
     }
 
     public void setFirstNameEN(String firstNameEN) {
         this.firstNameEN = firstNameEN;
-    }
-
-    public String getLastNameEN() {
-        return lastNameEN;
-    }
-
-    public void setLastNameEN(String lastNameEN) {
-        this.lastNameEN = lastNameEN;
     }
 
     public String getGender() {
